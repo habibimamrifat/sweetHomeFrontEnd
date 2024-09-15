@@ -10,7 +10,7 @@ const AddCakes = () => {
   const gatheredCakeData = async (cakeInfo) => {
     console.log("parents", cakeInfo);
     const req = await fetch(
-      "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/baker/addnewcake",
+      "https://sweet-home-backend.vercel.app/baker/addnewcake",
       {
         method: "POST",
         headers: {

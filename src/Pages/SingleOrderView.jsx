@@ -16,7 +16,7 @@ const SingleOrderView = () => {
     const findSingleOrder = async () => {
       try {
         const findOrder = await fetch(
-          `https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/bakerFindSingleOrder/${orderId}`
+          `https://sweet-home-backend.vercel.app/bakerFindSingleOrder/${orderId}`
         );
         const order = await findOrder.json();
         setOrder(order);

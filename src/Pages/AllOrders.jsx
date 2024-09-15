@@ -20,11 +20,11 @@ const AllOrders = ({ placement }) => {
     if (placement === "bakerOrderPannel") {
       cusOrBekerId.current = shopId;
       httpLink.current =
-        "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/bakerAllOrderCollection";
+        "https://sweet-home-backend.vercel.app/bakerAllOrderCollection";
     } else if (placement === "customerOrderPannel") {
       cusOrBekerId.current = customerId;
       httpLink.current =
-        "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/customerAllOrderCollection";
+        "https://sweet-home-backend.vercel.app/customerAllOrderCollection";
     }
   }, [placement, shopId, customerId]);
 

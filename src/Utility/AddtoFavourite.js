@@ -13,7 +13,7 @@ const AddtoFavourite = async (cakeId, navigate) => {
       // console.log("no baker")
       try {
         const request = await fetch(
-          `https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/addCakeToThefavouriteList/${loggedInUser._id}/${cakeId}`,
+          `https://sweet-home-backend.vercel.app/addCakeToThefavouriteList/${loggedInUser._id}/${cakeId}`,
           {
             method: "post",
             headers: {

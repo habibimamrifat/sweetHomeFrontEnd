@@ -20,7 +20,7 @@ const BakerSignup = () => {
     if (personalInfo) {
       try {
         const reasult = await fetch(
-          "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/signUpPage/bakerSignUp",
+          "https://sweet-home-backend.vercel.app/signUpPage/bakerSignUp",
           {
             method: "POST",
             headers: {
@@ -55,7 +55,7 @@ const BakerSignup = () => {
     if (shopInfoWithOwnerId.shopOwnerId) {
       try {
         const result = await fetch(
-          "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/signUpPage/bakerSignUp/createShop",
+          "https://sweet-home-backend.vercel.app/signUpPage/bakerSignUp/createShop",
           {
             method: "POST",
             headers: {
