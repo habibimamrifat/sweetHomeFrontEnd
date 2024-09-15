@@ -12,7 +12,7 @@ const BakerSignup = () => {
   const [isPersonalInforMationSaved, setIsPersonalInforMationSaved] =
     useState(false);
   const bakerPersonalInfoInsertedId = useRef();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const fireOnSaveFunctionBakerInfo = async (personalInfo) => {
     console.log("from baker personal", personalInfo);
@@ -20,7 +20,7 @@ const BakerSignup = () => {
     if (personalInfo) {
       try {
         const reasult = await fetch(
-          "http://localhost:5000/signUpPage/bakerSignUp",
+          "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/signUpPage/bakerSignUp",
           {
             method: "POST",
             headers: {
@@ -47,33 +47,32 @@ const BakerSignup = () => {
   };
 
   const fireOnSaveFunctionBakerShopInfo = async (shopInfo) => {
-     const shopInfoWithOwnerId = {
-      ...shopInfo, shopOwnerId : bakerPersonalInfoInsertedId.current
-     }
-     console.log(shopInfoWithOwnerId)
-     if(shopInfoWithOwnerId.shopOwnerId)
-     {
-      try{
-        const result = await fetch("http://localhost:5000/signUpPage/bakerSignUp/createShop",{
-          method:"POST",
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify(shopInfoWithOwnerId)
-        })
-        const responce = await result.json()
-        if(responce.insertedId)
-        {
-          alert("your baker account is perfectly created please log in")
-          navigate("/bakerSignIn")
+    const shopInfoWithOwnerId = {
+      ...shopInfo,
+      shopOwnerId: bakerPersonalInfoInsertedId.current,
+    };
+    console.log(shopInfoWithOwnerId);
+    if (shopInfoWithOwnerId.shopOwnerId) {
+      try {
+        const result = await fetch(
+          "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/signUpPage/bakerSignUp/createShop",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(shopInfoWithOwnerId),
+          }
+        );
+        const responce = await result.json();
+        if (responce.insertedId) {
+          alert("your baker account is perfectly created please log in");
+          navigate("/bakerSignIn");
         }
+      } catch (error) {
+        console.log("shop data submetting failed", error);
       }
-      catch(error)
-      {
-        console.log("shop data submetting failed",error)
-      }
-      
-     }
+    }
   };
 
   return (

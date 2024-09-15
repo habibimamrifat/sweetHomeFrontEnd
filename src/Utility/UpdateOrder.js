@@ -29,7 +29,8 @@ const UpdateOrder = async (setReload, orderId, triggaredState) => {
   };
 
   const updatingState = conditionTree[triggaredState];
-  const httpLink = "http://localhost:5000/baker/updateOrderState";
+  const httpLink =
+    "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/baker/updateOrderState";
 
   // Function to update the order state
   const updateOrderState = async (httpLink, updatingState, orderId) => {
@@ -55,7 +56,7 @@ const UpdateOrder = async (setReload, orderId, triggaredState) => {
   // Check the status of the order
   try {
     const findOrder = await fetch(
-      `http://localhost:5000/bakerFindSingleOrder/${orderId}`
+      `https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/bakerFindSingleOrder/${orderId}`
     );
     const targetOrder = await findOrder.json();
     // console.log("Targeted order", targetOrder);
@@ -66,25 +67,24 @@ const UpdateOrder = async (setReload, orderId, triggaredState) => {
       triggaredState === "canceled" &&
       (targetOrderState.cooking || targetOrderState.shipping)
     ) {
-      alert("Once cooking or shipping has started, you cannot cancel the order.");
+      alert(
+        "Once cooking or shipping has started, you cannot cancel the order."
+      );
+    } else if (triggaredState === "cooking" && targetOrderState.shipping) {
+      alert("cant return to cooking when Order is shiped");
     } else if (
-      triggaredState === "cooking" && targetOrderState.shipping) 
-      {
-        alert("cant return to cooking when Order is shiped")
-      }
-      else if(
-        triggaredState === "accepted" && (targetOrderState.cooking || targetOrderState.shipping))
-        {
-          alert(`cant return to ${triggaredState}`)
-        
-      }
-      else if((triggaredState !== "canceled" || triggaredState === "canceled") && targetOrderState.canceled)
-        {
-        alert(`cant change state to ${triggaredState} the order got canceled`)
-      }
-      else{
-        await updateOrderState(httpLink, updatingState, orderId);
-      }
+      triggaredState === "accepted" &&
+      (targetOrderState.cooking || targetOrderState.shipping)
+    ) {
+      alert(`cant return to ${triggaredState}`);
+    } else if (
+      (triggaredState !== "canceled" || triggaredState === "canceled") &&
+      targetOrderState.canceled
+    ) {
+      alert(`cant change state to ${triggaredState} the order got canceled`);
+    } else {
+      await updateOrderState(httpLink, updatingState, orderId);
+    }
   } catch (error) {
     alert("Something went wrong while finding the single order.");
   }

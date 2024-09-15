@@ -1,28 +1,30 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import CakeCard from '../SharedComponents/CakeCard';
-import CustomLoader from '../SharedComponents/CustomLoader';
-import { UserContext } from '../PrivateRoute/PrivateRout';
-import AllOrderButtons from '../SharedComponents/AllOrderButtons';
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+import CakeCard from "../SharedComponents/CakeCard";
+import CustomLoader from "../SharedComponents/CustomLoader";
+import { UserContext } from "../PrivateRoute/PrivateRout";
+import AllOrderButtons from "../SharedComponents/AllOrderButtons";
 
 const AllOrders = ({ placement }) => {
   const [data, setData] = useState([]); // Initialize with an empty array to avoid undefined issues
   const [isLoading, setIsLoading] = useState(true);
   const { reload, setReload } = useContext(UserContext);
-  const httpLink = useRef('');
+  const httpLink = useRef("");
   const { shopId, customerId } = useParams();
-  const cusOrBekerId = useRef('');
+  const cusOrBekerId = useRef("");
   const foundData = useRef([]);
-  const [orderList, setOrderList] = useState('allAvailableOrder');
+  const [orderList, setOrderList] = useState("allAvailableOrder");
 
   // Set the API link and identifier based on placement
   useEffect(() => {
-    if (placement === 'bakerOrderPannel') {
+    if (placement === "bakerOrderPannel") {
       cusOrBekerId.current = shopId;
-      httpLink.current = 'http://localhost:5000/bakerAllOrderCollection';
-    } else if (placement === 'customerOrderPannel') {
+      httpLink.current =
+        "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/bakerAllOrderCollection";
+    } else if (placement === "customerOrderPannel") {
       cusOrBekerId.current = customerId;
-      httpLink.current = 'http://localhost:5000/customerAllOrderCollection';
+      httpLink.current =
+        "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/customerAllOrderCollection";
     }
   }, [placement, shopId, customerId]);
 
@@ -31,16 +33,21 @@ const AllOrders = ({ placement }) => {
     const fetchData = async () => {
       setIsLoading(true); // Set loading state before fetching
       try {
-        const request = await fetch(`${httpLink.current}/${cusOrBekerId.current}`);
+        const request = await fetch(
+          `${httpLink.current}/${cusOrBekerId.current}`
+        );
         if (request.ok) {
           const response = await request.json();
           foundData.current = response;
           setData(response || []);
         } else {
-          alert('Something went wrong during fetching data');
+          alert("Something went wrong during fetching data");
         }
       } catch (error) {
-        console.log('Something went wrong in data fetching for all orders', error);
+        console.log(
+          "Something went wrong in data fetching for all orders",
+          error
+        );
       } finally {
         setIsLoading(false);
         setReload(false); // Reset the reload flag after fetching
@@ -58,33 +65,47 @@ const AllOrders = ({ placement }) => {
     if (foundData.current && foundData.current.length > 0) {
       let filteredData = [];
 
-      if (placement === 'bakerOrderPannel') {
+      if (placement === "bakerOrderPannel") {
         switch (orderList) {
-          case 'allOrder':
+          case "allOrder":
             filteredData = foundData.current;
             break;
-          case 'allCanceledOrder':
-            filteredData = foundData.current.filter((eachOrder) => eachOrder.status.canceled);
+          case "allCanceledOrder":
+            filteredData = foundData.current.filter(
+              (eachOrder) => eachOrder.status.canceled
+            );
             break;
-          case 'allAcceptedOrder':
-            filteredData = foundData.current.filter((eachOrder) => eachOrder.status.accepted && !eachOrder.status.cooking);
+          case "allAcceptedOrder":
+            filteredData = foundData.current.filter(
+              (eachOrder) =>
+                eachOrder.status.accepted && !eachOrder.status.cooking
+            );
             break;
-          case 'allCookingOrder':
-            filteredData = foundData.current.filter((eachOrder) => eachOrder.status.cooking && !eachOrder.status.shipping);
+          case "allCookingOrder":
+            filteredData = foundData.current.filter(
+              (eachOrder) =>
+                eachOrder.status.cooking && !eachOrder.status.shipping
+            );
             break;
-          case 'allShippingOrder':
-            filteredData = foundData.current.filter((eachOrder) => eachOrder.status.shipping && !eachOrder.status.canceled);
+          case "allShippingOrder":
+            filteredData = foundData.current.filter(
+              (eachOrder) =>
+                eachOrder.status.shipping && !eachOrder.status.canceled
+            );
             break;
-          case 'allAvailableOrder':
-            filteredData = foundData.current.filter((eachOrder) => !eachOrder.status.canceled);
+          case "allAvailableOrder":
+            filteredData = foundData.current.filter(
+              (eachOrder) => !eachOrder.status.canceled
+            );
             break;
           default:
             filteredData = foundData.current; // Default to all orders
         }
         setData(filteredData);
-      } 
-      else if (placement === 'customerOrderPannel') {
-        filteredData = foundData.current.filter((eachOrder) => !eachOrder.status.canceled);
+      } else if (placement === "customerOrderPannel") {
+        filteredData = foundData.current.filter(
+          (eachOrder) => !eachOrder.status.canceled
+        );
         setData(filteredData);
       }
     }
@@ -92,11 +113,8 @@ const AllOrders = ({ placement }) => {
 
   return (
     <div className="bg-blue-50 h-full w-full overflow-scroll">
-      {placement === 'bakerOrderPannel' && (
-        <AllOrderButtons
-          orderList={orderList}
-          setOrderList={setOrderList}
-        />
+      {placement === "bakerOrderPannel" && (
+        <AllOrderButtons orderList={orderList} setOrderList={setOrderList} />
       )}
 
       {isLoading ? (

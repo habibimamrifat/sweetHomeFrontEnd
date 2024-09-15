@@ -7,42 +7,34 @@ import {
 import PersonalInformationForm from "../SharedComponents/PersonalInformationForm";
 import { useNavigate } from "react-router-dom";
 
-
-
-
-
-
 const CustomerSignUp = () => {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  
- const fireOnSubmitFunction = async (personalInfo)=>
- {
-  // console.log("i am fired", personalInfo)
-  // insert into mongodb from here
-  const result = await fetch("http://localhost:5000/signUpPage/customerSignUp",{
+  const fireOnSubmitFunction = async (personalInfo) => {
+    // console.log("i am fired", personalInfo)
+    // insert into mongodb from here
+    const result = await fetch(
+      "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/signUpPage/customerSignUp",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(personalInfo),
+      }
+    );
 
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body:JSON.stringify(personalInfo)
-  })
+    const responseData = await result.json();
 
-  const responseData= await result.json() 
-  
-  console.log("yoo",responseData);
-  if(responseData.insertedId)
-  {
-    //replace alart with loader
-    alert("your account created")
-    //replace alart with loader
-    
-    navigate("/customerSignIn")
-  }
+    console.log("yoo", responseData);
+    if (responseData.insertedId) {
+      //replace alart with loader
+      alert("your account created");
+      //replace alart with loader
 
- }
-  
+      navigate("/customerSignIn");
+    }
+  };
 
   return (
     <div className="w-full pb-32">
@@ -50,9 +42,9 @@ const CustomerSignUp = () => {
         <TextWhite text={"Customer Sign Up"} />
       </div>
 
-      <PersonalInformationForm 
-      fireOnSubmit={fireOnSubmitFunction}
-      placement = {"Customer"}
+      <PersonalInformationForm
+        fireOnSubmit={fireOnSubmitFunction}
+        placement={"Customer"}
       />
 
       <div className="w-full h-12 mt-10 flex flex-col items-center">

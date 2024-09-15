@@ -1,9 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddtoFavourite = async (cakeId,navigate) => {
-  
-
+const AddtoFavourite = async (cakeId, navigate) => {
   const loggedInUser = JSON.parse(localStorage.getItem("sweetHomeUser"));
   // console.log("shop id",loggedInUser,loggedInUser.shopId)
   if (loggedInUser) {
@@ -15,7 +13,7 @@ const AddtoFavourite = async (cakeId,navigate) => {
       // console.log("no baker")
       try {
         const request = await fetch(
-          `http://localhost:5000/addCakeToThefavouriteList/${loggedInUser._id}/${cakeId}`,
+          `https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/addCakeToThefavouriteList/${loggedInUser._id}/${cakeId}`,
           {
             method: "post",
             headers: {
@@ -29,10 +27,9 @@ const AddtoFavourite = async (cakeId,navigate) => {
         );
         const result = await request.json();
         console.log(result);
-        if(result.result.insertedId || result.result.modifiedCount)
-        {
-          alert(`${result.message}`)
-          navigate(`/customerhome/fevList/${loggedInUser._id}`)
+        if (result.result.insertedId || result.result.modifiedCount) {
+          alert(`${result.message}`);
+          navigate(`/customerhome/fevList/${loggedInUser._id}`);
         }
       } catch (error) {
         console.log("clint side code error");

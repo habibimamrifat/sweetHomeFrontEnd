@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import ShopCard from '../SharedComponents/ShopCard'
-import CustomLoader from '../SharedComponents/CustomLoader'
+import React, { useEffect, useState } from "react";
+import ShopCard from "../SharedComponents/ShopCard";
+import CustomLoader from "../SharedComponents/CustomLoader";
 
 const Shops = () => {
+  const [allShops, setAllShops] = useState([]);
 
-  const [allShops, setAllShops]=useState([])
-
-  useEffect(()=>{
+  useEffect(() => {
     const fetchAllShops = async () => {
       try {
-        const shops = await fetch("http://localhost:5000/allShopCollection");
+        const shops = await fetch(
+          "https://sweet-home-back-69klmy8j5-habib-imams-projects.vercel.app/allShopCollection"
+        );
         if (!shops.ok) {
           throw new Error("Network response was not ok");
         }
@@ -21,22 +22,21 @@ const Shops = () => {
     };
 
     fetchAllShops();
-  },[])
-
+  }, []);
 
   return (
     <div className="bg-blue-50 h-full w-full overflow-scroll pb-[200px] ">
-      {allShops && allShops.length > 0 ? (<div className="flex justify-center flex-wrap mx-2 mt-2 gap-y-5 gap-x-5 pb-[200px]">
-        
-       { allShops.map((shop, index) => (
-          <ShopCard key={shop._id} Data={shop} />
-        ))}
-      
-      </div>) : (
+      {allShops && allShops.length > 0 ? (
+        <div className="flex justify-center flex-wrap mx-2 mt-2 gap-y-5 gap-x-5 pb-[200px]">
+          {allShops.map((shop, index) => (
+            <ShopCard key={shop._id} Data={shop} />
+          ))}
+        </div>
+      ) : (
         <CustomLoader />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Shops
+export default Shops;
