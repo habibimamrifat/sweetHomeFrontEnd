@@ -5,11 +5,11 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0', // Make sure the server listens on all network interfaces
-    port: process.env.PORT || 5173, // Use the Railway PORT if it's provided, fallback to 5173 for local
+    host: '0.0.0.0', // Listen on all network interfaces
+    port: Number(process.env.PORT) || 5173, // Use the Railway PORT or fallback to 5173 for local dev
   },
   preview: {
-    host: '0.0.0.0', // Same for preview mode
-    port: process.env.PORT || 4173, // Railway PORT or fallback for local preview
+    host: '0.0.0.0', // Ensure the preview listens on all network interfaces
+    port: Number(process.env.PORT) || 4173, // Use Railway's PORT or fallback for local preview
   }
 })
