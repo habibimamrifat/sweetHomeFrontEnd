@@ -20,7 +20,7 @@ const BakerSignup = () => {
     if (personalInfo) {
       try {
         const reasult = await fetch(
-          "https://sweet-home-backend.vercel.app/api/v2/signUpPage/bakerSignUp",
+          "sweethomebackend-production.up.railway.app/api/v2/signUpPage/bakerSignUp",
           {
             method: "POST",
             headers: {
@@ -55,7 +55,7 @@ const BakerSignup = () => {
     if (shopInfoWithOwnerId.shopOwnerId) {
       try {
         const result = await fetch(
-          "https://sweet-home-backend.vercel.app/api/v2/signUpPage/bakerSignUp/createShop",
+          "sweethomebackend-production.up.railway.app/api/v2/signUpPage/bakerSignUp/createShop",
           {
             method: "POST",
             headers: {

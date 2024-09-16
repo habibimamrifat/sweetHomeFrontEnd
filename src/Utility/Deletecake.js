@@ -10,7 +10,7 @@ const Deletecake = async (cakeId) => {
 
   try {
     const request = await fetch(
-      `https://sweet-home-backend.vercel.app/api/v2/baker/deleteCake/${loggeduser.loggedUser.shopId}/${cakeId}`,
+      `sweethomebackend-production.up.railway.app/api/v2/baker/deleteCake/${loggeduser.loggedUser.shopId}/${cakeId}`,
       {
         method: "PUT",
         headers: {

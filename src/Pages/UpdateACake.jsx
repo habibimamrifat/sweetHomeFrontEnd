@@ -25,7 +25,7 @@ const UpdateACake = () => {
     console.log("updated", updatedCake);
 
     const updateCake = await fetch(
-      `https://sweet-home-backend.vercel.app/api/v2/baker/UpdateACake/${cakeId}`,
+      `sweethomebackend-production.up.railway.app/api/v2/baker/UpdateACake/${cakeId}`,
       {
         method: "put",
         headers: {

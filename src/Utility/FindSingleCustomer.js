@@ -4,7 +4,7 @@ const FindSingleCustomer = async (customerId) => {
   // console.log("fromUtility",customerId)
   try {
     const request = await fetch(
-      `https://sweet-home-backend.vercel.app/api/v2/findSingleCustomer/${customerId}`
+      `sweethomebackend-production.up.railway.app/api/v2/findSingleCustomer/${customerId}`
     );
     if (request.ok) {
       const singleCustomer = request.json();

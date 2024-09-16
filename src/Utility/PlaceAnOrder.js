@@ -2,7 +2,7 @@ const PlaceAnOrder = async (orderData) => {
   console.log("danggg", orderData);
   try {
     const request = await fetch(
-      "https://sweet-home-backend.vercel.app/api/v2/customer/createAnOrder",
+      "sweethomebackend-production.up.railway.app/api/v2/customer/createAnOrder",
       {
         method: "post",
         headers: {
