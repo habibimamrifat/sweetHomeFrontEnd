@@ -3,7 +3,7 @@ import React from "react";
 const FindFevCakeList = async (customerId) => {
   try {
     const findFevCakeList = await fetch(
-      `sweethomebackend-production.up.railway.app/api/v2/customerFaveCakeList/${customerId}`
+      `https://sweethomebackend-production.up.railway.app/api/v2/customerFaveCakeList/${customerId}`
     );
     const result = await findFevCakeList.json();
     // console.log(result)

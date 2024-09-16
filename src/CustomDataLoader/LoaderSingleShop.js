@@ -1,7 +1,7 @@
 const LoaderSingleShop = () => {
   const allDataGather = async () => {
     const allShopDataUnwraped = await fetch(
-      "sweethomebackend-production.up.railway.app/api/v2/allShopCollection"
+      "https://sweethomebackend-production.up.railway.app/api/v2/allShopCollection"
     );
     console.log("from inner1", allShopDataUnwraped);
 

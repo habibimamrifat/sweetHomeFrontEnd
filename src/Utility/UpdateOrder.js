@@ -30,7 +30,7 @@ const UpdateOrder = async (setReload, orderId, triggaredState) => {
 
   const updatingState = conditionTree[triggaredState];
   const httpLink =
-    "sweethomebackend-production.up.railway.app/api/v2/baker/updateOrderState";
+    "https://sweethomebackend-production.up.railway.app/api/v2/baker/updateOrderState";
 
   // Function to update the order state
   const updateOrderState = async (httpLink, updatingState, orderId) => {
@@ -56,7 +56,7 @@ const UpdateOrder = async (setReload, orderId, triggaredState) => {
   // Check the status of the order
   try {
     const findOrder = await fetch(
-      `sweethomebackend-production.up.railway.app/api/v2/bakerFindSingleOrder/${orderId}`
+      `https://sweethomebackend-production.up.railway.app/api/v2/bakerFindSingleOrder/${orderId}`
     );
     const targetOrder = await findOrder.json();
     // console.log("Targeted order", targetOrder);

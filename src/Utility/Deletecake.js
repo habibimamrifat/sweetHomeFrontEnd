@@ -10,7 +10,7 @@ const Deletecake = async (cakeId) => {
 
   try {
     const request = await fetch(
-      `sweethomebackend-production.up.railway.app/api/v2/baker/deleteCake/${loggeduser.loggedUser.shopId}/${cakeId}`,
+      `https://sweethomebackend-production.up.railway.app/api/v2/baker/deleteCake/${loggeduser.loggedUser.shopId}/${cakeId}`,
       {
         method: "PUT",
         headers: {

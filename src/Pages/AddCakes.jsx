@@ -10,7 +10,7 @@ const AddCakes = () => {
   const gatheredCakeData = async (cakeInfo) => {
     console.log("parents", cakeInfo);
     const req = await fetch(
-      "sweethomebackend-production.up.railway.app/api/v2/baker/addnewcake",
+      "https://sweethomebackend-production.up.railway.app/api/v2/baker/addnewcake",
       {
         method: "POST",
         headers: {

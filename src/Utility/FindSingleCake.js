@@ -2,7 +2,7 @@ const FindSingleCake = async (cakeId) => {
   // console.log("fromUtility",cakeId)
   try {
     const request = await fetch(
-      `sweethomebackend-production.up.railway.app/api/v2/findASingleCake/${cakeId}`
+      `https://sweethomebackend-production.up.railway.app/api/v2/findASingleCake/${cakeId}`
     );
     if (request.ok) {
       const singleCake = request.json();

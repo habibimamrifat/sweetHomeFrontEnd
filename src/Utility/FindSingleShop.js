@@ -3,7 +3,7 @@ import React from "react";
 const FindSingleShop = async (shopId) => {
   try {
     const request = await fetch(
-      `sweethomebackend-production.up.railway.app/api/v2/baker/findSingleShop/${shopId}`
+      `https://sweethomebackend-production.up.railway.app/api/v2/baker/findSingleShop/${shopId}`
     );
     const result = await request.json();
     return result;

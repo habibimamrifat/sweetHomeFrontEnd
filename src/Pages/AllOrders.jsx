@@ -20,11 +20,11 @@ const AllOrders = ({ placement }) => {
     if (placement === "bakerOrderPannel") {
       cusOrBekerId.current = shopId;
       httpLink.current =
-        "sweethomebackend-production.up.railway.app/api/v2/bakerAllOrderCollection";
+        "https://sweethomebackend-production.up.railway.app/api/v2/bakerAllOrderCollection";
     } else if (placement === "customerOrderPannel") {
       cusOrBekerId.current = customerId;
       httpLink.current =
-        "sweethomebackend-production.up.railway.app/api/v2/customerAllOrderCollection";
+        "https://sweethomebackend-production.up.railway.app/api/v2/customerAllOrderCollection";
     }
   }, [placement, shopId, customerId]);
 

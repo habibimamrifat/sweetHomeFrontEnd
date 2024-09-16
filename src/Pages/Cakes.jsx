@@ -21,10 +21,10 @@ const Cakes = ({ placement = "shopPannel" }) => {
 
       console.log("I am triggered");
 
-      allCakeFetchUrl.current = `sweethomebackend-production.up.railway.app/api/v2/bakerAllCakeCollection/${shopIdRef.current}`;
+      allCakeFetchUrl.current = `https://sweethomebackend-production.up.railway.app/api/v2/bakerAllCakeCollection/${shopIdRef.current}`;
     } else {
       allCakeFetchUrl.current =
-        "sweethomebackend-production.up.railway.app/api/v2/home";
+        "https://sweethomebackend-production.up.railway.app/api/v2/home";
     }
   };
 

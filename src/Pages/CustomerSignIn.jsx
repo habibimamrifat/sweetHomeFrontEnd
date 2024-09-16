@@ -15,7 +15,7 @@ const CustomerSignIn = () => {
   const customerSignInFunction = async (LoginData) => {
     // console.log("customerSign in",LoginData)
     const apiLink =
-      "sweethomebackend-production.up.railway.app/api/v2/customerSignIn";
+      "https://sweethomebackend-production.up.railway.app/api/v2/customerSignIn";
 
     // console.log("yapsi",apiLink,LoginData)
     const LoginApproved = await LogInCeck(apiLink, LoginData);

@@ -9,7 +9,7 @@ const Shops = () => {
     const fetchAllShops = async () => {
       try {
         const shops = await fetch(
-          "sweethomebackend-production.up.railway.app/api/v2/allShopCollection"
+          "https://sweethomebackend-production.up.railway.app/api/v2/allShopCollection"
         );
         if (!shops.ok) {
           throw new Error("Network response was not ok");
