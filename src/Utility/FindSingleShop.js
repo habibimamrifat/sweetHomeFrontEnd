@@ -3,7 +3,7 @@ import React from "react";
 const FindSingleShop = async (shopId) => {
   try {
     const request = await fetch(
-      `https://sweet-home-backend.vercel.app/baker/findSingleShop/${shopId}`
+      `https://sweet-home-backend.vercel.app/api/v2/baker/findSingleShop/${shopId}`
     );
     const result = await request.json();
     return result;

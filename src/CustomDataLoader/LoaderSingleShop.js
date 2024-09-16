@@ -1,7 +1,7 @@
 const LoaderSingleShop = () => {
   const allDataGather = async () => {
     const allShopDataUnwraped = await fetch(
-      "https://sweet-home-backend.vercel.app/allShopCollection"
+      "https://sweet-home-backend.vercel.app/api/v2/allShopCollection"
     );
     console.log("from inner1", allShopDataUnwraped);
 

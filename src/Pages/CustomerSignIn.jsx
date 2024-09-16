@@ -14,7 +14,8 @@ const CustomerSignIn = () => {
 
   const customerSignInFunction = async (LoginData) => {
     // console.log("customerSign in",LoginData)
-    const apiLink = "https://sweet-home-backend.vercel.app/customerSignIn";
+    const apiLink =
+      "https://sweet-home-backend.vercel.app/api/v2/customerSignIn";
 
     // console.log("yapsi",apiLink,LoginData)
     const LoginApproved = await LogInCeck(apiLink, LoginData);

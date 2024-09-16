@@ -12,15 +12,21 @@ const Cakes = ({ placement = "shopPannel" }) => {
   console.log("the shopId is", shopId);
 
   const shopIdRef = useRef();
-  const allCakeFetchUrl = useRef("https://sweet-home-backend.vercel.app/");
+  const allCakeFetchUrl = useRef();
 
-  if (placement === "bakerCakeCollectionPanel" && shopId) {
+  const findROut = (placement)=>{
+    if (placement === "bakerCakeCollectionPanel" && shopId) {
     const loggedUser = JSON.parse(localStorage.getItem("sweetHomeUser"));
     shopIdRef.current = loggedUser.shopId;
 
     console.log("I am triggered");
 
-    allCakeFetchUrl.current = `https://sweet-home-backend.vercel.app/bakerAllCakeCollection/${shopIdRef.current}`;
+    allCakeFetchUrl.current = `https://sweet-home-backend.vercel.app/api/v2/bakerAllCakeCollection/${shopIdRef.current}`;
+  }
+  else
+  {
+     allCakeFetchUrl.current = "https://sweet-home-backend.vercel.app/api/v2/home";
+  }
   }
 
   useEffect(() => {
@@ -41,6 +47,7 @@ const Cakes = ({ placement = "shopPannel" }) => {
       }
     };
     if (reload) {
+      findROut(placement)
       allCakeFetch();
     }
   }, [reload]);

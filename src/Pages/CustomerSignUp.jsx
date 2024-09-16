@@ -14,7 +14,7 @@ const CustomerSignUp = () => {
     // console.log("i am fired", personalInfo)
     // insert into mongodb from here
     const result = await fetch(
-      "https://sweet-home-backend.vercel.app/signUpPage/customerSignUp",
+      "https://sweet-home-backend.vercel.app/api/v2/signUpPage/customerSignUp",
       {
         method: "POST",
         headers: {

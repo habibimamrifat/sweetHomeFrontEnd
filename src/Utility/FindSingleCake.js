@@ -2,7 +2,7 @@ const FindSingleCake = async (cakeId) => {
   // console.log("fromUtility",cakeId)
   try {
     const request = await fetch(
-      `https://sweet-home-backend.vercel.app/findASingleCake/${cakeId}`
+      `https://sweet-home-backend.vercel.app/api/v2/findASingleCake/${cakeId}`
     );
     if (request.ok) {
       const singleCake = request.json();

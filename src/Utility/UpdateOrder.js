@@ -30,7 +30,7 @@ const UpdateOrder = async (setReload, orderId, triggaredState) => {
 
   const updatingState = conditionTree[triggaredState];
   const httpLink =
-    "https://sweet-home-backend.vercel.app/baker/updateOrderState";
+    "https://sweet-home-backend.vercel.app/api/v2/baker/updateOrderState";
 
   // Function to update the order state
   const updateOrderState = async (httpLink, updatingState, orderId) => {
@@ -56,7 +56,7 @@ const UpdateOrder = async (setReload, orderId, triggaredState) => {
   // Check the status of the order
   try {
     const findOrder = await fetch(
-      `https://sweet-home-backend.vercel.app/bakerFindSingleOrder/${orderId}`
+      `https://sweet-home-backend.vercel.app/api/v2/bakerFindSingleOrder/${orderId}`
     );
     const targetOrder = await findOrder.json();
     // console.log("Targeted order", targetOrder);

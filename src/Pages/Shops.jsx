@@ -9,7 +9,7 @@ const Shops = () => {
     const fetchAllShops = async () => {
       try {
         const shops = await fetch(
-          "https://sweet-home-backend.vercel.app/allShopCollection"
+          "https://sweet-home-backend.vercel.app/api/v2/allShopCollection"
         );
         if (!shops.ok) {
           throw new Error("Network response was not ok");

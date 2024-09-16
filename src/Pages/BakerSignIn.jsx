@@ -14,7 +14,7 @@ const BakerSignIn = () => {
   const bakerSignInFunction = async (LoginData) => {
     // console.log("baker sign in",LoginData)
 
-    const apiLink = "https://sweet-home-backend.vercel.app/bakerSignIn";
+    const apiLink = "https://sweet-home-backend.vercel.app/api/v2/bakerSignIn";
 
     const LoginApproved = await LogInCeck(apiLink, LoginData);
     console.log("i am baker approval", LoginApproved);
