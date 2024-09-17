@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import dotenv from "dotenv"
 
 const ImgToLink = async (img) => {
     const formImg = new FormData();
     formImg.append("image", img);
-    dotenv.config()
-    console.log(process.env.Img_bb_key)
+   
+    const imgBbKey = import.meta.env.VITE_IMGBB_KEY;
+    console.log("i am env",imgBbKey);
   
     try {
       const response = await fetch(
-        `https://api.imgbb.com/1/upload?key=${process.env.Img_bb_key}`,
+        `https://api.imgbb.com/1/upload?key=${imgBbKey}`,
         {
           method: "POST",
           body: formImg,
@@ -22,7 +21,7 @@ const ImgToLink = async (img) => {
   
       const imgLink = await response.json();
   
-      if (imgLink && imgLink.data) {
+      if (imgLink && imgLink?.data) {
         return {
           displayLink: imgLink.data.display_url,
           deleteLink: imgLink.data.delete_url,
