@@ -56,6 +56,11 @@ const BakerSignIn = () => {
             </u>
           </a>
         </div>
+
+        <div>
+          use Email -baker15@gmail.com
+          use Password- alex 123456
+        </div>
       </div>
     </div>
   );

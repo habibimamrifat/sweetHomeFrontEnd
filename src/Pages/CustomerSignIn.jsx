@@ -62,6 +62,11 @@ const CustomerSignIn = () => {
             </u>
           </a>
         </div>
+
+        <div>
+          use email- customer15@gmail.com
+          use Password- password123456789
+        </div>
       </div>
     </div>
   );
