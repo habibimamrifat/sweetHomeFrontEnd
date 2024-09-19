@@ -26,6 +26,8 @@ import SingleOrderView from './Pages/SingleOrderView.jsx';
 import PlaceAnOrder from './Pages/PlaceAnOrder.jsx';
 import SingleCakeView from './Pages/SingleCakeView.jsx';
 import AllFavuriteCake from './Pages/AllFavuriteCake.jsx';
+import CustomerPasswordReset from './Pages/CustomerPasswordReset.jsx';
+import BakerPasswordReset from './Pages/BakerPasswordReset.jsx';
 
 const router = createBrowserRouter([
 
@@ -95,6 +97,14 @@ const router = createBrowserRouter([
       {
         path: "/:base/eachShop/:shopId",
         element: <EachShopView/>
+      },
+      {
+        path: "/customer/reSetPassword",
+        element: <CustomerPasswordReset/>
+      },
+      {
+        path: "/baker/reSetPassword",
+        element: <BakerPasswordReset/>
       },
       
      

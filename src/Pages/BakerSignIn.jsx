@@ -50,7 +50,7 @@ const BakerSignIn = () => {
 
         <div className="flex gap-4">
           <TextLight text={"Forgot Pasword ?"} />
-          <a href="/">
+          <a href="/baker/reSetPassword">
             <u>
               <TextDarkest text={"Reset Password"} />
             </u>

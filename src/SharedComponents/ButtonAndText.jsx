@@ -63,7 +63,7 @@ const ButtonDangerWhiteLink = ({ buttonInnerText,navigationLink }) => {
 
 const ButtonWhiteSubmit = ({ buttonInnerText }) => {
   return (
-    <button className="w-full h-full bg-white flex justify-center items-center rounded-xl font-bold shadow-sm shadow-sky-800 hover:shadow-lg hover:shadow-sky-800 " type="submit">
+    <button className="w-full min-h-16 h-auto bg-white flex justify-center items-center rounded-xl font-bold shadow-sm shadow-sky-800 hover:shadow-lg hover:shadow-sky-800 " type="submit">
       <h2 className="z-10">{buttonInnerText}</h2>
     </button>
   );
