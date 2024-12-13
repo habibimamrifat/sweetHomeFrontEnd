@@ -14,8 +14,7 @@ const BakerSignIn = () => {
   const bakerSignInFunction = async (LoginData) => {
     // console.log("baker sign in",LoginData)
 
-    const apiLink =
-      "https://sweethomebackend-production.up.railway.app/api/v2/bakerSignIn";
+    const apiLink = "https://sweethomebackend.onrender.com/api/v2/bakerSignIn";
 
     const LoginApproved = await LogInCeck(apiLink, LoginData);
     console.log("i am baker approval", LoginApproved);
@@ -57,10 +56,7 @@ const BakerSignIn = () => {
           </a>
         </div>
 
-        <div>
-          use Email -baker15@gmail.com
-          use Password- alex 123456
-        </div>
+        <div>use Email -baker15@gmail.com use Password- alex 123456</div>
       </div>
     </div>
   );

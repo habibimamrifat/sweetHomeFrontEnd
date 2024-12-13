@@ -14,7 +14,7 @@ const CustomerSignUp = () => {
     // console.log("i am fired", personalInfo)
     // insert into mongodb from here
     const result = await fetch(
-      "https://sweethomebackend-production.up.railway.app/api/v2/signUpPage/customerSignUp",
+      "https://sweethomebackend.onrender.com/api/v2/signUpPage/customerSignUp",
       {
         method: "POST",
         headers: {

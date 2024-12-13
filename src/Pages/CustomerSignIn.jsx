@@ -15,7 +15,7 @@ const CustomerSignIn = () => {
   const customerSignInFunction = async (LoginData) => {
     // console.log("customerSign in",LoginData)
     const apiLink =
-      "https://sweethomebackend-production.up.railway.app/api/v2/customerSignIn";
+      "https://sweethomebackend.onrender.com/api/v2/customerSignIn";
 
     // console.log("yapsi",apiLink,LoginData)
     const LoginApproved = await LogInCeck(apiLink, LoginData);
@@ -64,8 +64,7 @@ const CustomerSignIn = () => {
         </div>
 
         <div>
-          use email- customer15@gmail.com
-          use Password- password123456789
+          use email- customer15@gmail.com use Password- password123456789
         </div>
       </div>
     </div>

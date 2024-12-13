@@ -4,7 +4,7 @@ const FindSingleCustomer = async (customerId) => {
   // console.log("fromUtility",customerId)
   try {
     const request = await fetch(
-      `https://sweethomebackend-production.up.railway.app/api/v2/findSingleCustomer/${customerId}`
+      `https://sweethomebackend.onrender.com/api/v2/findSingleCustomer/${customerId}`
     );
     if (request.ok) {
       const singleCustomer = request.json();
